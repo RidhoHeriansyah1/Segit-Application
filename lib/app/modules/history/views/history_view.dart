@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:segit/app/modules/history/controllers/history_controller.dart';
-import 'package:segit/app/modules/setting/controllers/setting_controller.dart';
 import 'package:segit/app/utils/my_color.dart';
 
 class HistoryView extends GetView<HistoryController> {

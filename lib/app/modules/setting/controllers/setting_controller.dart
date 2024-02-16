@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:segit/app/data/history_provider.dart';
 import 'package:segit/app/data/logout_provider.dart';
 import 'package:segit/app/routes/app_pages.dart';
 import 'package:sp_util/sp_util.dart';
