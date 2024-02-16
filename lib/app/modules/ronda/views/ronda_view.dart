@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:segit/app/data/model/ronda_model.dart';
+import 'package:segit/app/modules/ronda/views/widget/modal_ronda_widget.dart';
 import 'package:segit/app/utils/my_color.dart';
+import 'package:sp_util/sp_util.dart';
 
 import '../controllers/ronda_controller.dart';
 
@@ -14,76 +15,73 @@ class RondaView extends GetView<RondaController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'RondaView',
-            style: TextStyle(color: Colors.white),
+        automaticallyImplyLeading: false,
+        toolbarHeight: 90,
+        flexibleSpace: Container(
+          color: MyColor.biruTua,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/Segit1.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Welcome to Segit',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '${SpUtil.getString('nama')}',
+                        style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          backgroundColor: MyColor.biruTua,
         ),
-        backgroundColor: Colors.blue[50],
+      ),
+        backgroundColor: Colors.white,
         body: Obx(() => ListView.builder(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
               itemCount: controller.schedules.length,
               itemBuilder: (BuildContext context, int index) {
                 Hari item = controller.schedules[index];
                 return Card(
-                  color: MyColor.putih,
+                  color: MyColor.biruMuda,
                   elevation: 1,
-                  margin: EdgeInsets.symmetric(vertical: 9, horizontal: 20),
+                  margin: const EdgeInsets.symmetric(vertical: 9, horizontal: 20),
                   child: ListTile(
                     onTap: () {
                       if (item.users.isEmpty) {
                         Get.snackbar(
-                          "Error", "Tidak ada orang dihari ${item.hari}",
-                          backgroundColor: Colors.red,
-                          colorText: Colors.white
-                        );
-                      }
-                      else {
-                      modal(item.users, item);
+                            "Error", "Tidak ada orang dihari ${item.hari}",
+                            backgroundColor: Colors.red,
+                            colorText: Colors.white);
+                      } else {
+                        modalRonda(item.users, item, context);
                       }
                     },
-                    title: Text("${item.hari}"),
-                    subtitle: Text('${item.waktu}'),
-                    // subtitle:  Text ("${item.users.map((user) => user.nama).join(' \n')}"),
-                    trailing: Icon(IconlyLight.arrow_right_2),
+                    title:  Text('${item.hari}',
+                    style: TextStyle(color: Colors.white),),
+                    trailing: const Icon(IconlyLight.arrow_right_2, color: Colors.white,),
                   ),
                 );
               },
-            )));
-  }
-
-  void modal(List<User> users, item) {
-    
-      Get.bottomSheet(
-        Container(
-          width: double.infinity,
-          height: 200,
-          color: Colors.white,
-          padding: EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Nama-Nama Ronda ${item.hari}',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              SizedBox(height: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: users.map((user) {
-                  var icon = Icon(IconlyLight.user);
-                  return Text(
-                    '${icon} ${user.nama}',
-                    style: TextStyle(fontSize: 16),
-                  );
-                }).toList(),
-              ),
-            ],
-          ),
-        ),
-      );
-    
+            )
+          )
+        );
   }
 }

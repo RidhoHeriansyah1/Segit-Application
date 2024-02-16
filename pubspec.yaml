@@ -14,8 +14,13 @@ dependencies:
   sp_util: ^2.0.3
   flutter_image_slideshow: ^0.1.6
   iconly: ^1.0.1
-  zoom_tap_animation: ^1.1.0
   url_launcher: ^6.2.4
+  flutter_local_notifications: ^16.3.2
+  firebase_messaging: ^14.7.10
+  firebase_core: ^2.24.2
+  flutter_launcher_icons: ^0.13.1
+  vibration: ^1.8.4
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -25,5 +30,11 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
   assets:
-  - images/
+  - assets/images/
+  - assets/sounds/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/launcher_icon.png"
 

@@ -5,7 +5,6 @@ import 'package:segit/app/utils/my_color.dart';
 
 import '../controllers/login_controller.dart';
 
-
 class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
   @override
@@ -24,7 +23,7 @@ class LoginView extends GetView<LoginController> {
           children: [
             Center(
               child: Image.asset(
-                'images/segit2.png',
+                'assets/images/segit2.png',
                 height: 150,
               ),
             ),
@@ -45,10 +44,7 @@ class LoginView extends GetView<LoginController> {
                 labelText: "Username",
                 labelStyle: TextStyle(fontSize: 13),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: MyColor.biruMuda
-                  )
-                ),
+                    borderSide: BorderSide(color: MyColor.biruMuda)),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: MyColor.kuning),
                 ),
@@ -59,49 +55,43 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
             ),
-            
             const SizedBox(height: 30),
-
-            Obx(() => TextField(
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: controller.isPasswordHidden.value,
-              controller: controller.txtPassword,
-              cursorColor: MyColor.kuning,
-              textInputAction: TextInputAction.send,
-              onSubmitted: (value) => controller.auth(),
-              decoration: InputDecoration(
-                labelText: 'Password',
-                labelStyle: const TextStyle(
-                  fontSize: 13
-                ),
-                prefixIcon: const Icon(
-                  Icons.lock_rounded,
-                  color: MyColor.biruTua,
-                  size: 20,
-                ),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: MyColor.biruMuda
-                  )
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: MyColor.kuning),
-                ),
-                suffix: InkWell(
-                    child: Icon(
-                      controller.isPasswordHidden.value
-                      ? Icons.visibility_rounded
-                      : Icons.visibility_off_rounded,
+            Obx(
+              () => TextField(
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: controller.isPasswordHidden.value,
+                controller: controller.txtPassword,
+                cursorColor: MyColor.kuning,
+                textInputAction: TextInputAction.send,
+                onSubmitted: (value) => controller.auth(),
+                decoration: InputDecoration(
+                    labelText: 'Password',
+                    labelStyle: const TextStyle(fontSize: 13),
+                    prefixIcon: const Icon(
+                      Icons.lock_rounded,
                       color: MyColor.biruTua,
                       size: 20,
                     ),
-                  onTap: (){
-                    controller.isPasswordHidden.value =
-                    !controller.isPasswordHidden.value;
-                  },
-                )
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: MyColor.biruMuda)),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: MyColor.kuning),
+                    ),
+                    suffix: InkWell(
+                      child: Icon(
+                        controller.isPasswordHidden.value
+                            ? Icons.visibility_rounded
+                            : Icons.visibility_off_rounded,
+                        color: MyColor.biruTua,
+                        size: 20,
+                      ),
+                      onTap: () {
+                        controller.isPasswordHidden.value =
+                            !controller.isPasswordHidden.value;
+                      },
+                    )),
               ),
-            ),),
+            ),
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () => controller.auth(),
@@ -112,8 +102,8 @@ class LoginView extends GetView<LoginController> {
                       borderRadius: BorderRadius.circular(5))),
               child: const Text(
                 'Login',
-                style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             )
           ],

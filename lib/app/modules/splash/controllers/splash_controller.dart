@@ -9,7 +9,7 @@ class SplashController extends GetxController {
     var durasiSplash = const Duration(seconds: 2);
     Timer(durasiSplash, () {
     SpUtil.getBool('isLogin', defValue: false)!
-    ? Get.offAllNamed(Routes.home)
+    ? Get.offAllNamed(Routes.bottomNav)
     : Get.offAllNamed(Routes.login)
     ;
     });

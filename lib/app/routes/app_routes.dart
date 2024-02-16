@@ -7,9 +7,10 @@ abstract class Routes {
   static const splash = _Paths.splash;
   static const login = _Paths.login;
   static const ronda = _Paths.ronda;
-  static const BOTTOM_NAV = _Paths.BOTTOM_NAV;
-  static const ALARM = _Paths.ALARM;
-  static const SETTING = _Paths.SETTING;
+  static const bottomNav = _Paths.bottomNav;
+  static const setting = _Paths.setting;
+  static const warga = _Paths.warga;
+  static const history = _Paths.history;
 }
 
 abstract class _Paths {
@@ -18,7 +19,8 @@ abstract class _Paths {
   static const splash = '/splash';
   static const login = '/login';
   static const ronda = '/ronda';
-  static const BOTTOM_NAV = '/bottom-nav';
-  static const ALARM = '/alarm';
-  static const SETTING = '/setting';
+  static const bottomNav = '/bottom-nav';
+  static const setting = '/setting';
+  static const warga = '/warga';
+  static const history = '/history';
 }

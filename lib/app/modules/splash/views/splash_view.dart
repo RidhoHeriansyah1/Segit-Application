@@ -12,7 +12,7 @@ class SplashView extends GetView<SplashController> {
       body: Container(
         child: Center(
           child: Image.asset(
-            'images/segit2.png',
+            'assets/images/segit2.png',
             width: MediaQuery.of(context).size.width/1.3,
           ),
           

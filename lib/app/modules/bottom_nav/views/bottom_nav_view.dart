@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:segit/app/modules/alarm/views/alarm_view.dart';
 import 'package:segit/app/modules/home/views/home_view.dart';
 import 'package:segit/app/modules/ronda/views/ronda_view.dart';
 import 'package:segit/app/modules/setting/views/setting_view.dart';
@@ -23,7 +22,6 @@ class BottomNavView extends StatelessWidget {
           children: const [
             HomeView(),
             RondaView(),
-            AlarmView(),
             SettingView(),
           ],
         ),
@@ -31,10 +29,10 @@ class BottomNavView extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: MyColor.putih,
         selectedItemColor: MyColor.kuning,
-        unselectedLabelStyle: TextStyle(
+        unselectedLabelStyle: const  TextStyle(
           fontSize: 10
         ),
-        selectedLabelStyle: TextStyle(
+        selectedLabelStyle: const  TextStyle(
           fontSize: 10,
         ),
         onTap: controller.changeTabIndex,
@@ -53,10 +51,6 @@ class BottomNavView extends StatelessWidget {
             label: "Ronda"
           ),
           _bottomNavItem(
-            icon: IconlyLight.danger,
-            label: "Alarm"
-          ),
-          _bottomNavItem(
             icon: IconlyLight.setting,
             label: "Setting"
           ),
@@ -68,7 +62,8 @@ class BottomNavView extends StatelessWidget {
   _bottomNavItem({required icon, required label}){
     return BottomNavigationBarItem(
       icon: Icon(icon),
-      label: label
+      label: label,
+      
     );
   }
 }

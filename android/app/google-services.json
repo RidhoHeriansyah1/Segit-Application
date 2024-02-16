@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "124179254250",
+    "project_id": "segit-b6e31",
+    "storage_bucket": "segit-b6e31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124179254250:android:19b0e5f3204dba58d54093",
+        "android_client_info": {
+          "package_name": "com.example.segit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlPEroFV1TK2l4bzJ-uF7TNBIpzbXTT9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

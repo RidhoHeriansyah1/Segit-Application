@@ -9,7 +9,7 @@ class BottomNav extends StatelessWidget {
       notchMargin: 10,
       elevation: 0,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

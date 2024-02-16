@@ -3,13 +3,11 @@ import 'dart:convert';
 class Hari {
   int id;
   String hari;
-  String waktu;
   List<User> users;
 
   Hari({
     required this.id,
-    required this.hari,
-    required this.waktu,
+    required this.hari,  
     required this.users,
   });
 
@@ -17,7 +15,6 @@ class Hari {
     return Hari(
       id: json['id'],
       hari: json['hari'],
-      waktu: json['waktu'],
       users: User.fromJsonList(json['user']),
     );
   }
@@ -33,11 +30,9 @@ class User {
   String nik;
   String nama;
   String username;
-  int noRumah;
+  String noRumah;
   int roleId;
   int jadwalId;
-  String createdAt;
-  String updatedAt;
 
   User({
     required this.id,
@@ -47,8 +42,6 @@ class User {
     required this.noRumah,
     required this.roleId,
     required this.jadwalId,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -60,8 +53,6 @@ class User {
       noRumah: json['no_rumah'],
       roleId: json['role_id'],
       jadwalId: json['jadwal_id'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
     );
   }
 

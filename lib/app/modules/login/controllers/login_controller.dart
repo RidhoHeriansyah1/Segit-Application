@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -9,9 +10,9 @@ class LoginController extends GetxController {
   TextEditingController txtUser = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
 
-  var isPasswordHidden= true.obs;
+  var isPasswordHidden = true.obs;
 
-  void auth() {
+  void auth() async {
     String username = txtUser.text;
     String password = txtPassword.text;
 
@@ -21,16 +22,23 @@ class LoginController extends GetxController {
     } else {
       EasyLoading.show();
       var data = {"username": username, "password": password};
-      LoginProvider().auth(data).then((value) {
+      LoginProvider().auth(data).then((value) async {
         if (value.statusCode == 200) {
           var responseBody = value.body;
 
           var data = responseBody['data'];
-          
+
           SpUtil.putString('nama', data['nama']);
+          SpUtil.putString('no', data['no_rumah']);
+          SpUtil.putInt('id', data['id']);
           SpUtil.putString('token', data['token']);
           SpUtil.putBool('isLogin', true);
-          Get.offAllNamed(Routes.BOTTOM_NAV);
+          Get.offAllNamed(Routes.bottomNav);
+          final fcmToken = await FirebaseMessaging.instance.getToken();
+          print(fcmToken);
+         
+          FirebaseMessaging.instance.subscribeToTopic('laporan_maling');
+          
         } else {
           Get.snackbar("Error", "Login Gagal!",
               backgroundColor: Colors.red, colorText: Colors.white);
@@ -39,5 +47,4 @@ class LoginController extends GetxController {
       });
     }
   }
-  
 }

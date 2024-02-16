@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import '../modules/alarm/bindings/alarm_binding.dart';
-import '../modules/alarm/views/alarm_view.dart';
 import '../modules/bottom_nav/bindings/bottom_nav_binding.dart';
 import '../modules/bottom_nav/views/bottom_nav_view.dart';
+import '../modules/history/bindings/history_binding.dart';
+import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -14,6 +14,8 @@ import '../modules/setting/bindings/setting_binding.dart';
 import '../modules/setting/views/setting_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/warga/bindings/warga_binding.dart';
+import '../modules/warga/views/warga_view.dart';
 
 part 'app_routes.dart';
 
@@ -44,19 +46,26 @@ class AppPages {
       binding: RondaBinding(),
     ),
     GetPage(
-      name: _Paths.BOTTOM_NAV,
+      name: _Paths.bottomNav,
       page: () => const BottomNavView(),
       binding: BottomNavBinding(),
     ),
     GetPage(
-      name: _Paths.ALARM,
-      page: () => const AlarmView(),
-      binding: AlarmBinding(),
-    ),
-    GetPage(
-      name: _Paths.SETTING,
+      name: _Paths.setting,
       page: () => const SettingView(),
       binding: SettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.warga,
+      page: () => const WargaView(),
+      binding: WargaBinding(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: _Paths.history,
+      page: () => const HistoryView(),
+      binding: HistoryBinding(),
+      transition: Transition.noTransition
     ),
   ];
 }
